@@ -2,10 +2,6 @@
   "name": "crypto_tracker",
   "version": "0.1.0",
   "private": true,
-<<<<<<< Updated upstream
-=======
-  "homepage": "https://kaydan95.github.io/crypto_tracker",
->>>>>>> Stashed changes
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
