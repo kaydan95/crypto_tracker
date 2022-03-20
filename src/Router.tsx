@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import styled from "styled-components";
 import Coin from './routes/Coin';
 import Coins from './routes/Coins';

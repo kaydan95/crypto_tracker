@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "deploy" : "gh-pages -d build"
   },
-  "homepage" : "https://github.com/kaydan95/crypto_tracker",
+  "homepage" : ".",
   "eslintConfig": {
     "extends": [
       "react-app",
