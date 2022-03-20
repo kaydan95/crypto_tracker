@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/kaydan95/crypto_tracker/static/js/main.70177721.js",
-    "index.html": "/kaydan95/crypto_tracker/index.html",
-    "main.70177721.js.map": "/kaydan95/crypto_tracker/static/js/main.70177721.js.map"
+    "main.js": "/crypto_tracker/static/js/main.eb4afb06.js",
+    "index.html": "/crypto_tracker/index.html",
+    "main.eb4afb06.js.map": "/crypto_tracker/static/js/main.eb4afb06.js.map"
   },
   "entrypoints": [
-    "static/js/main.70177721.js"
+    "static/js/main.eb4afb06.js"
   ]
 }
