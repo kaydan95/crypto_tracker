@@ -30,6 +30,10 @@ function Router() {
                 </Routes>
             </ChildWrapper>
         </ParentsWrapper>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         </HashRouter>
     )
 }

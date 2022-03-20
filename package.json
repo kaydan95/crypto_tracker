@@ -2,6 +2,10 @@
   "name": "crypto_tracker",
   "version": "0.1.0",
   "private": true,
+<<<<<<< Updated upstream
+=======
+  "homepage": "https://kaydan95.github.io/crypto_tracker",
+>>>>>>> Stashed changes
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
@@ -25,9 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild" : "rmdir /s docs",
-    "build": "react-scripts build && rmdir /s docs && run build docs",
-    "rename" : "run build docs",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
