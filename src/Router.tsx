@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
 import styled from "styled-components";
 import Coin from './routes/Coin';
 import Coins from './routes/Coins';
@@ -20,7 +20,7 @@ const ChildWrapper = styled.div`
 
 function Router() {
     return (
-        <BrowserRouter basename={process.env.BASE_URL}>
+        <HashRouter basename={process.env.BASE_URL}>
         <ParentsWrapper>
             <ChildWrapper>
                 <Coins/>
@@ -31,7 +31,7 @@ function Router() {
             </ChildWrapper>
         </ParentsWrapper>
 
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
