@@ -20,7 +20,7 @@ const ChildWrapper = styled.div`
 
 function Router() {
     return (
-        <BrowserRouter basename="https://kaydan95.github.io/crypto_tracker/">
+        <BrowserRouter basename="/crypto_tracker">
         <ParentsWrapper>
             <ChildWrapper>
                 <Coins/>
