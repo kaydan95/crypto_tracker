@@ -20,7 +20,7 @@ const ChildWrapper = styled.div`
 
 function Router() {
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter basename="crypto_tracker">
         <ParentsWrapper>
             <ChildWrapper>
                 <Coins/>
