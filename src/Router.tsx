@@ -20,7 +20,7 @@ const ChildWrapper = styled.div`
 
 function Router() {
     return (
-        <HashRouter basename={process.env.BASE_URL}>
+        <HashRouter>
         <ParentsWrapper>
             <ChildWrapper>
                 <Coins/>
