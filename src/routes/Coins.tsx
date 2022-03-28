@@ -123,7 +123,7 @@ function Coins() {
                             to={`/${coin.id}`}
                             state = {{name : coin.name, rank : coin.rank}}
                         >
-                            <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}></Img>
+                            <Img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`}></Img>
                             {coin.name}
                         </Link>
                     </Coin> 

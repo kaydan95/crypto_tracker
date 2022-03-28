@@ -327,8 +327,7 @@ function Coin() {
     const state = location.state as RouteState;
 
     const {isLoading:infoLoading, data:infoData} = useQuery<InfoData>(["info", coinID], ()=> fetchCoinInfo(coinID!));
-    
-    // console.log(infoData);
+
 
     const {isLoading:tickersLoading, data:tickersData} = useQuery<priceData>(
         ["tickers", coinID],
@@ -353,7 +352,7 @@ function Coin() {
                 <>
                     <CoinContainer>
                         <TitleSection>
-                            <CoinImg src={`https://cryptoicon-api.vercel.app/api/icon/${infoData?.symbol.toLowerCase()}`} ></CoinImg>
+                            <CoinImg src={`https://cryptocurrencyliveprices.com/img/${infoData?.id}.png`} ></CoinImg>
                             <TagContainer>
                                 <Title>{infoData?.name}</Title>
                                 <WhiteTag>{infoData?.symbol}</WhiteTag>
