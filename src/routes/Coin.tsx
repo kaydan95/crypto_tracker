@@ -363,7 +363,7 @@ function Coin() {
                         <BodySection>
                             <ChartBox>
                                 <p>{des === null || des === "" ? "There's no description about this coin" : `${infoData?.description.slice(0,415)}...`}</p>
-                                <Chart coinID={coinID!} />
+                                <Chart coinID={coinID!}/>
                             </ChartBox>
                             <PriceSection>
                                 <PriceInfoBox>
