@@ -27,11 +27,11 @@
 1. 먼저 CRYPTO 라는 문자열의 기본값 선언하고 이를 `useState()` 을 이용해서 초기값으로 세팅해준다.
 
 ```typescript
-    const cryptoArray = "000000".split("");
-    const trackerArray = "0000000".split("");
+const cryptoArray = "000000".split("");
+const trackerArray = "0000000".split("");
 
-    const [crypto, setCrypto] = useState(cryptoArray);
-    const [tracker, setTracker] = useState(trackerArray);
+const [crypto, setCrypto] = useState(cryptoArray);
+const [tracker, setTracker] = useState(trackerArray);
 ```
 2. 다음으로 `useEffect()`를 이용해 기능을 구현할 함수를 `setMotion`이라는 이름으로 정의, 이하 기능을 구현한다.   
  
@@ -43,78 +43,78 @@
 - 그리고 모든 글자가 바뀌어 CRYPTO가 완성되면 최종적으로 반환한다. TRACKER 문구도 똑같은 원리..!
 
 ```typescript
-    const setMotion = () => {
+const setMotion = () => {
 
-        const cryptoArr = "CRYPTO".split("");
-        const trackerArr = "TRACKER".split("");
+    const cryptoArr = "CRYPTO".split("");
+    const trackerArr = "TRACKER".split("");
 
-        var cryptoChanging = setInterval(() => {
+    var cryptoChanging = setInterval(() => {
 
-            if(JSON.stringify(crypto) !== JSON.stringify(cryptoArr) || JSON.stringify(tracker) !== JSON.stringify(trackerArr)){
+        if(JSON.stringify(crypto) !== JSON.stringify(cryptoArr) || JSON.stringify(tracker) !== JSON.stringify(trackerArr)){
 
 
-                for (let i=0; i<crypto.length; i++){ //갱신
+            for (let i=0; i<crypto.length; i++){ //갱신
 
-                    if(crypto[i] === cryptoArr[i]){
-                        continue;
-                    }
-                    if(crypto[i] !== cryptoArr[i]) {
-                        if(crypto[i] === i.toString()){
-                            crypto[i] = cryptoArr[i];
-                            setCrypto([crypto[i]]);
-                        }
-                        else {
-                            crypto[i] = Math.floor(Math.random() * 9).toLocaleString();
-                            setCrypto([crypto[i]]);
-                        }
-                        continue;
-                    }
+                if(crypto[i] === cryptoArr[i]){
+                    continue;
                 }
-
-                for (let j=0; j<tracker.length; j++){ //갱신
-
-                    if(tracker[j] === trackerArr[j]){
-                        continue;
+                if(crypto[i] !== cryptoArr[i]) {
+                    if(crypto[i] === i.toString()){
+                        crypto[i] = cryptoArr[i];
+                        setCrypto([crypto[i]]);
                     }
-                    if(tracker[j] !== trackerArr[j]) {
-                        if(tracker[j] === j.toString()){
-                            tracker[j] = trackerArr[j];
-                            setTracker([tracker[j]]);
-                        }
-                        else {
-                            tracker[j] = Math.floor(Math.random() * 9).toLocaleString();
-                            setTracker([tracker[j]]);
-                        }
-                        continue;
+                    else {
+                        crypto[i] = Math.floor(Math.random() * 9).toLocaleString();
+                        setCrypto([crypto[i]]);
                     }
+                    continue;
                 }
-
-                const forReturn = (crypto:string[],tracker:string[]) => {
-                    const fCrypto = () => {
-                        return setCrypto(crypto);
-                    }
-                    if(crypto !== undefined){
-                        fCrypto();
-                    }
-                    return setTracker(tracker);
-                }
-
-                return forReturn(crypto,tracker);
             }
 
-            if(JSON.stringify(crypto) === JSON.stringify(cryptoArr) && JSON.stringify(tracker) !== JSON.stringify(trackerArr)){
-                clearInterval(cryptoChanging);
+            for (let j=0; j<tracker.length; j++){ //갱신
+
+                if(tracker[j] === trackerArr[j]){
+                    continue;
+                }
+                if(tracker[j] !== trackerArr[j]) {
+                    if(tracker[j] === j.toString()){
+                        tracker[j] = trackerArr[j];
+                        setTracker([tracker[j]]);
+                    }
+                    else {
+                        tracker[j] = Math.floor(Math.random() * 9).toLocaleString();
+                        setTracker([tracker[j]]);
+                    }
+                    continue;
+                }
             }
 
-        }, 5/1000);
-    }
+            const forReturn = (crypto:string[],tracker:string[]) => {
+                const fCrypto = () => {
+                    return setCrypto(crypto);
+                }
+                if(crypto !== undefined){
+                    fCrypto();
+                }
+                return setTracker(tracker);
+            }
+
+            return forReturn(crypto,tracker);
+        }
+
+        if(JSON.stringify(crypto) === JSON.stringify(cryptoArr) && JSON.stringify(tracker) !== JSON.stringify(trackerArr)){
+            clearInterval(cryptoChanging);
+        }
+
+    }, 5/1000);
+}
 ```
 3. 화면이 최초 렌더링 될 때 실행되어야하므로 `useEffect()` 를 이용해 해당 함수를 실행시킨다.
 
 ```typescirpt
-    useEffect(() => {
-        setMotion();
-    }, []);
+useEffect(() => {
+    setMotion();
+}, []);
 ```
 
 #### 2. CoinList를 사이드로 배치
@@ -123,10 +123,10 @@
 #### 3. 주식 알못의 Data 단위 및 % 정리하기
 - 각종 거래량과 변동 퍼센트를 다음과 같은 방식으로 다 정리해줬다..! `replace(/\B(?=(\d{3})+(?!\d))/g, ',')` 부분은 구글링해서 찾아봤는데 성공..!
 ```typescript
-    <GridBoxItem>
-        <span>change (24H)</span>
-        <span>${tickersData?.quotes.USD.market_cap_change_24h.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}%</span>
-    </GridBoxItem>
+<GridBoxItem>
+    <span>change (24H)</span>
+    <span>${tickersData?.quotes.USD.market_cap_change_24h.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}%</span>
+</GridBoxItem>
 ```
 
 #### 4. (조금) 반응형
@@ -137,21 +137,21 @@
 - 이번에도 배포에 도전..! 했지만 깃허브 페이지에 계속 배포가 실패했다. 어떤게 잘못된건가 구글링을 해보다 결국 react-router 부분을 HashRouter 로 수정해주고 나니 제대로 배포가 됐다..! 
 
 ```typescript
-    function Router() {
-        return (
-            <HashRouter>
-            <ParentsWrapper>
-                <ChildWrapper>
-                    <Coins/>
-                    <Routes>
-                        <Route path="/" element={<Main/>}></Route>
-                        <Route path="/:coinID/*" element={<Coin/>}></Route>
-                    </Routes>
-                </ChildWrapper>
-            </ParentsWrapper>
-            </HashRouter>
-        )
-    }
+function Router() {
+    return (
+        <HashRouter>
+        <ParentsWrapper>
+            <ChildWrapper>
+                <Coins/>
+                <Routes>
+                    <Route path="/" element={<Main/>}></Route>
+                    <Route path="/:coinID/*" element={<Coin/>}></Route>
+                </Routes>
+            </ChildWrapper>
+        </ParentsWrapper>
+        </HashRouter>
+    )
+}
 ```
 
 
