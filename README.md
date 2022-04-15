@@ -1,4 +1,4 @@
-# :spiral_notepad: Crypto Tracker [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+# :chart: Crypto Tracker [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 <img src="https://user-images.githubusercontent.com/85853145/163525787-11002270-a495-4f37-9f89-3e6034a98c1c.gif" width="1000" height="500">
 
