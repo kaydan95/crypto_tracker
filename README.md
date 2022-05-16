@@ -7,7 +7,7 @@
 - **목적** : NomadCoders React강의 일부 및 다양한 라이브러리 연습
 - **라이브러리 종류** : react-query / styled-components / react-helmet / react-apexcharts / react-router
 - **메인 개발 환경** : React / Typescript / JavaScript
-- **Data Api** : [coinpaprika](https://api.coinpaprika.com/v1)
+- **Data Api** : [coinpaprika](https://api.coinpaprika.com/)
 - **배포** : [Crypto Tracker](https://kaydan95.github.io/crypto_tracker/)
 
 
