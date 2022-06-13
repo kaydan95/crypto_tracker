@@ -5,13 +5,13 @@ import ReactApexChart from "react-apexcharts";
 import styled from 'styled-components';
 
 type IHistoricalData = {
-    time_open: string;
-    time_close: string;
-    open: number;
-    high: number;
-    low: number;
-    close: number;
-    volume: number;
+    time_open: number;
+    time_close: number;
+    open: string;
+    high: string;
+    low: string;
+    close: string;
+    volume: string;
     market_cap: number;
 }
 interface ChartProps {
@@ -32,6 +32,18 @@ function Chart({coinID}:ChartProps) {
       }
     );
 
+    function convertDate(milliSecond : number) {
+      const data = new Date(milliSecond);  //Date객체 생성
+
+      const year = data.getFullYear();    //0000년 가져오기
+      const month = data.getMonth() + 1;  //월은 0부터 시작하니 +1하기
+      const date = data.getDate();        //일자 가져오기
+      const minutes = data.getMinutes();
+      const seconds = data.getSeconds();
+  
+      return `${date}/${minutes}/${seconds}`;
+    }
+
     return (
       <>
         {isLoading ? ("Loading chart...") : (
@@ -42,8 +54,8 @@ function Chart({coinID}:ChartProps) {
                   {
                     data : priceData?.map((price) => {
                       return {
-                        x : price.time_close.slice(2,10),
-                        y : [price.open.toFixed(2), price.high.toFixed(2), price.low.toFixed(2), price.close.toFixed(2)],
+                        x : [convertDate(price.time_close)],
+                        y : [(+price.open).toFixed(), (+price.high).toFixed(), (+price.low).toFixed(), (+price.close).toFixed()],
                       }
                     }) ?? []
                   },
